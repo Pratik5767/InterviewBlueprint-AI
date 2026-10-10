@@ -1,6 +1,6 @@
-import React from 'react'
 import { useAuth } from '../hooks/useAuth'
 import { Navigate } from 'react-router'
+import Loading from '../../../Loading'
 
 
 const Protected = ({ children }) => {
@@ -8,7 +8,7 @@ const Protected = ({ children }) => {
     const { loading, user } = useAuth()
 
     if (loading) {
-        return (<main><h1>Loading....</h1></main>)
+        return <Loading message='Please wait...' />
     }
 
     if (!user) {
